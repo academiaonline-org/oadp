@@ -32,7 +32,7 @@ spec:
               subPath: default.conf
             - name: nginx-html
               mountPath: /usr/share/nginx/html/
-              readOnly: true
+              readOnly: false
             - name: nginx-run
               mountPath: /var/run
               readOnly: false
