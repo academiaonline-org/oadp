@@ -1,0 +1,16 @@
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  name: backup
+  namespace: openshift-adp
+  labels:
+    velero.io/storage-location: velero-sample-1
+spec:
+  defaultVolumesToRestic: true
+  includedNamespaces:
+    - demo
+  snapshotVolumes: true
+  storageLocation: velero-sample-1
+  ttl: 720h0m0s
+  volumeSnapshotLocations:
+    - velero-sample-1
