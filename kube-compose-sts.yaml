@@ -150,16 +150,6 @@ spec:
             - name: nginx-run
               mountPath: /var/run
               readOnly: false
-      volumeClaimTemplates:
-        - metadata:
-            name: nginx-html
-          spec:
-            accessModes:
-              - ReadWriteOnce
-            resources:
-              requests:
-                storage: 1Gi
-            volumeMode: Filesystem
       volumes:
         - name: nginx-cache
           emptyDir: {}
@@ -179,3 +169,13 @@ spec:
             secretName: default.conf
         - name: nginx-run
           emptyDir: {}
+  volumeClaimTemplates:
+    - metadata:
+        name: nginx-html
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+        volumeMode: Filesystem
